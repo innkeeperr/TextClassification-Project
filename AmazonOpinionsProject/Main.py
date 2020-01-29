@@ -19,10 +19,10 @@ display.max_columns = 50
 display.max_rows = 50
 display.max_colwidth = 199
 
-df = pd.read_csv('Reviews.csv', nrows=10000, sep=',')
+df = pd.read_csv('Reviews.csv', nrows=1000, sep=',')
 
 # df = pd.DataFrame()
-# temp = pd.read_csv('Reviewstest2.csv', iterator=True, chunksize=1000, sep=',')
+# temp = pd.read_csv('Reviews.csv', iterator=True, chunksize=10000, sep=',')
 # df = pd.concat(temp, ignore_index=True)
 
 # CONFIGURATION #
@@ -190,7 +190,7 @@ def train_model(classifier, feature_vector_train, label, feature_vector_valid, i
 
   return metrics.accuracy_score(predictions, valid_y)
 
-# Sprawdzeniue różnych klasyfikatorów
+# Sprawdzenie różnych klasyfikatorów
 # Linear Classifier on Word Level TF IDF Vectors
 classifier = linear_model.LogisticRegression()
 accuracy = train_model(classifier, xtrain_tfidf, train_y, xvalid_tfidf)
